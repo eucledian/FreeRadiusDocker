@@ -1,6 +1,13 @@
 # FreeRadiusDocker
 A dockerfile for free radius based on alpine
 
+## Running the docker
+```shell
+docker run -d --name radius -p 1812-1814:1812-1814/udp -p 1812-1814:1812-1814 -p 18120:18120 eucledian/radius-server
+```
+
+
+
 ## testing
 add
 ```shell
@@ -18,3 +25,8 @@ add
 <name> Cleartext-Password := <password>
 ```
 to the `raddb/mods-config/files/authorize` to add a test user
+
+testing the server 
+```shell
+radtest *[username]* *[password]* *[ip-address-radius]* *[nat]* *[secret]*
+```
